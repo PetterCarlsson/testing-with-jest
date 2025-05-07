@@ -20,6 +20,7 @@ test('peek on stack with two or more elements returns the top element', () => {
 
 test('pop on a stack with two or more elements', () => {
     stack.push(1);
+    stack.push(2);
     stack.pop();
     expect(stack.peek()).toBe(1);
 });
