@@ -11,6 +11,13 @@ window.onload = function () {
     pop.addEventListener("click", function() {
         var text = "Tog bort " + stack.pop();
         alert(text);
+        
+        var peek = stack.peek()
+        if (peek) {
+            display.innerHTML = peek;
+        } else {
+            display.innerHTML = "n/a";
+        }
     });
 
     push.addEventListener("click", function() {

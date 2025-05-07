@@ -38,13 +38,13 @@ describe("Pushing two items or more then popping once", () => {
         let push = await driver.findElement(By.id('push'));
         await push.click();
         let alert = await driver.switchTo().alert();
-        await alert.sendKeys(1);
+        await alert.sendKeys("1");
         await alert.accept();
 
         push = await driver.findElement(By.id('push'));
         await push.click();
         alert = await driver.switchTo().alert();
-        await alert.sendKeys(2);
+        await alert.sendKeys("2");
         await alert.accept();
 
         let pop = await driver.findElement(By.id('pop'));
@@ -52,6 +52,6 @@ describe("Pushing two items or more then popping once", () => {
         await alert.accept();
 
         let stack = await driver.findElement(By.id('top_of_stack')).getText();
-        expect(stack).toEqual(1);
+        expect(stack).toEqual("1");
     });
 });
