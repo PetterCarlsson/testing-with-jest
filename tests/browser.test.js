@@ -32,3 +32,26 @@ describe('Clicking "Pusha till stacken"', () => {
         await alert.accept();
     });
 });
+
+describe("Pushing two items or more then popping once", () => {
+    it('should show the first pushed number after a pop', async () => {
+        let push = await driver.findElement(By.id('push'));
+        await push.click();
+        let alert = await driver.switchTo().alert();
+        await alert.sendKeys(1);
+        await alert.accept();
+
+        push = await driver.findElement(By.id('push'));
+        await push.click();
+        alert = await driver.switchTo().alert();
+        await alert.sendKeys(2);
+        await alert.accept();
+
+        let pop = await driver.findElement(By.id('pop'));
+        await pop.click();
+        await alert.accept();
+
+        let stack = await driver.findElement(By.id('top_of_stack')).getText();
+        expect(stack).toEqual(1);
+    });
+});
